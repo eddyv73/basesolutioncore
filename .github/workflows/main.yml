@@ -16,8 +16,8 @@ jobs:
       with:
         dotnet-version: 3.1.101
     - name: Install dependencies
-      run: dotnet restore
+      run: dotnet restore  ./WebBase.sln
     - name: Build
-      run: dotnet build --configuration Release --no-restore ./WebBase.sln
+      run: dotnet build  ./WebBase.sln
     - name: Test
       run: dotnet test --no-restore --verbosity normal .\WebBase\WebBase.sln
