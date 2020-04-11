@@ -19,4 +19,4 @@ jobs:
     # - name: Restore with dotnet
     #   run: dotnet restore  ../WebBase/
     - name: Build with dotnet
-      run: dotnet build .\WebBase\WebBase.sln
+      run: dotnet build 
