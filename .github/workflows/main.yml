@@ -16,6 +16,8 @@ jobs:
         dotnet-version: '3.1.100'
     - name: echo
       run: pwd
+    - name: echo
+      run: ls
     - name: Restore with dotnet
       run: dotnet restore  ../basesolutioncore/basesolutioncore/WebBase/WebBase/WebBase.csproj
     - name: Build with dotnet
