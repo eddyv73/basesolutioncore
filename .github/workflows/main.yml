@@ -17,6 +17,6 @@ jobs:
     - name: echo
       run: pwd
     - name: Restore with dotnet
-      run: dotnet restore \WebBase.sln
+      run: dotnet restore .\basesolutioncore\WebBase\WebBase.sln
     - name: Build with dotnet
       run: dotnet build .\WebBase\WebBase.sln
