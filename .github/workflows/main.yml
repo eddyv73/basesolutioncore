@@ -18,6 +18,6 @@ jobs:
     - name: Install dependencies
       run: dotnet restore  ./WebBase/WebBase.sln
     - name: Build
-      run: dotnet build  ./WebBase.sln
+      run: dotnet build ./WebBase/WebBase.sln
     - name: Test
-      run: dotnet test --no-restore --verbosity normal .\WebBase\WebBase.sln
+      run: dotnet test --no-restore --verbosity normal ./WebBase/WebBase.sln
