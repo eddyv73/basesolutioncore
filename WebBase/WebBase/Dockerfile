@@ -2,6 +2,8 @@
 
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base
 WORKDIR /app
+ENV User "email@email.com"
+ENV Pwd "Password"
 EXPOSE 80
 EXPOSE 443
 
