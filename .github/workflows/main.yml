@@ -19,6 +19,6 @@ jobs:
     - name: echo
       run: ls
     - name: Restore with dotnet
-      run: dotnet restore  ../basesolutioncore/basesolutioncore/WebBase/WebBase/WebBase.csproj
+      run: dotnet restore  /WebBase/WebBase.csproj
     - name: Build with dotnet
       run: dotnet build 
