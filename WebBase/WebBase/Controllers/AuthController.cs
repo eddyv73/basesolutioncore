@@ -17,11 +17,19 @@ namespace WebBase.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
+        /// <summary>Index
+        /// <para>This example you can see, the get user with _userManager and Login With Password</para>
+        /// <seealso cref="Index"/>
+        /// </summary>
         public async Task<IActionResult> Index()
         {
+            //Get User with usermanager
             var user = await _userManager.FindByEmailAsync(ConfigurationManager.AppSetting["User"]);
+            //Sign in with SignManager
 
             var isLoged = await _signInManager.PasswordSignInAsync(user, ConfigurationManager.AppSetting["Pwd"], true, false);
+
+            //If is true you are in
             return View();
         }
 
