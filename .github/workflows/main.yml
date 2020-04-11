@@ -8,17 +8,16 @@ jobs:
 
     runs-on: ubuntu-latest
 
+
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '3.1.100'
-    - name: echo
-      run: pwd
-    - name: echo
-      run: ls
-    - name: Restore with dotnet
-      run: dotnet restore  .\WebBase\WebBase.sln
-    - name: Build with dotnet
-      run: dotnet build 
+        dotnet-version: 3.1.101
+    - name: Install dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+    - name: Test
+      run: dotnet test --no-restore --verbosity normal
