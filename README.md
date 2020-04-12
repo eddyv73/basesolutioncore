@@ -57,7 +57,7 @@ cd /WebBase/
     
     /Model
     
-    -----------/ApplicationUser.cs  --> User Custom clas for Identity User
+    -----------/ApplicationUser.cs  --> User Custom class for Identity User
     
     /Areas
     
@@ -76,7 +76,7 @@ cd /WebBase/
     /Startup  --> Check the specific section
     
     
-### Customize a Identity
+### Customize  Identity
 1.- Create a database
 
 	/DB folder you can found a script
@@ -95,7 +95,7 @@ cd /WebBase/
     
 In this case we assume the ApplicationUser is a CustomClass (Step 2)
 
-4.- Add Service Identity in the starup file
+4.- Add Service Identity in the startup file
 	Replace this line 
 
     Service.AddDefaultIdentity
