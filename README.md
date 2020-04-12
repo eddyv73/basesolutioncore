@@ -184,7 +184,17 @@ https://github.com/eddyv73/basesolutioncore/blob/cdf80e0a6873f80c86d52353b0b3151
 7.-Test the login with you Bearer token here
 	
 	Get(id) 
+	
+### Enviroments
 
+
+  User: Email test User
+  
+  Pwd: Password test User
+  
+  Secret_Key = Secret Key JWT
+  
+  
 License
 ----
 
