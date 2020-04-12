@@ -77,6 +77,68 @@ cd /WebBase/
     
     
 ### Customize a Identity
+1.- Create a database
+
+	/DB folder you can found a script
+
+2.- Create a custom Class to User, this class can be modified but you need add the new properties in the table “Aspnetusers” in this case you don’t need do nothing.
+
+3.- You need change this line in the ApplicationDbContext
+
+
+    public class ApplicationDbContext : IdentityDbContext
+    
+  
+ for this
+  
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    
+In this case we assume the ApplicationUser is a CustomClass (Step 2)
+
+4.- Add Service Identity in the starup file
+	Replace this line 
+
+    Service.AddDefaultIdentity
+  
+  For this
+  
+     services.AddIdentity<ApplicationUser, IdentityRole>() 
+          .AddEntityFrameworkStores<ApplicationDbContext>() 
+          .AddDefaultTokenProviders();
+  
+5- Add a Custom View
+
+  In this case I added Auth/index and AuthController
+  
+6.- Inject in the cshtml the contexts
+
+    @using Microsoft.AspNetCore.Identity 
+
+    @inject SignInManager<ApplicationUser> SignInManager 
+  
+    @inject UserManager<ApplicationUser> UserManager
+  
+  
+7.- Modify the constructor controller
+
+    private readonly SignInManager<ApplicationUser> _signInManager;
+    private readonly UserManager<ApplicationUser> _userManager;
+    public AuthController(UserManager<ApplicationUser> userManager,	SignInManager<ApplicationUser> signInManager)
+    {
+        _userManager = userManager;
+        _signInManager = signInManager;
+    }
+  
+8.- Use the signinmanager and usermanager
+
+You can use the usermanager to get all information from the Database.
+
+    var user = await _userManager.FindByEmailAsync(ConfigurationManager.AppSetting["User"]);
+           
+Sign in, you need set the user want Sign in and Password.
+
+    await _signInManager.PasswordSignInAsync(user, ConfigurationManager.AppSetting["Pwd"], true, false)
+
 
 
 ### Set up Jwt
